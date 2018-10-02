@@ -4,6 +4,7 @@ import { render } from "react-dom";
 
 import {Header} from "./components/Header";
 import {Home} from "./components/Home";
+import {Sidebar} from "./components/Sidebar";
 
 class App extends React.Component
 {
@@ -20,6 +21,11 @@ class App extends React.Component
                 <div className="row">
                     <div className="col-xs-10">
                         <Home/>
+                    </div>
+                </div>  
+                <div className="row">
+                    <div className="col-xs-10">
+                        <Sidebar/>
                     </div>
                 </div>  
             </div>
