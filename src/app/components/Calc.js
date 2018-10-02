@@ -7,8 +7,21 @@ export class Calc extends React.Component
     {
         super();
         this.state = {
-            result: props.num
+            result: props.num,
+            name: "Kapil"
         };
+
+        setTimeout(() => {
+            this.setState({
+                name: "Vashishat"
+            });
+        },2000);
+
+        setTimeout(() => {
+            this.setState({
+                name: "Kapil"
+            });
+        },4000);
     }
 
     Add()
@@ -36,6 +49,7 @@ export class Calc extends React.Component
     {
         return(
             <div>
+                <h2>Hello , {this.state.name}</h2>
                 Initially , No. is {this.props.num} <br/>
                 Result is - {this.state.result}
                 <div className='btn-toolbar pull-right'>
