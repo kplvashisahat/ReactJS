@@ -3,6 +3,23 @@ import PropTypes from "prop-types";
 
 export class Home extends React.Component
 {
+    constructor(props) 
+    {
+        super(); // It is the parent constructor that always be called & inherited from React.Component
+        this.state = {
+            age: props.initialage
+        };
+    }
+    
+
+    addButton()
+    {
+        this.setState({
+        age : this.state.age + 2
+        // console.log(this.age);
+        });
+    }
+
     render()
     {
         let a = 8 ;
@@ -17,13 +34,18 @@ export class Home extends React.Component
         return(
             <div>
                 <p>In a Home Component</p>
-                <p>Your Name is:{this.props.name} , Age is :{this.props.age} , </p>
+                <p>Your Name is:{this.props.name} , Age is :{this.state.age} , </p>
                 { b }
                 <p> Object => City : {this.props.data.city} </p>
                 <p>Looping the array elements</p>
 
                 <p>States : {this.props.data.states.map((state) => <li>{state}</li>)}</p>  {/* It is the way to loop in React */}
                 {this.props.children}
+
+                Now, we'll learn Events
+                <br/>
+                <button onClick={() => this.addButton()} className="btn btn-primary">Add</button> 
+                {/* onclick is written in es6 , we can also write {this.addButton.bind(this)} */}
             </div>
         );
     }
@@ -32,7 +54,7 @@ export class Home extends React.Component
 {/* Now, here I am validatiing the type of the props */}
 Home.propTypes = {
     name: PropTypes.string,
-    age: PropTypes.number,
+    initialage: PropTypes.number,
     data: PropTypes.object,
     children: PropTypes.element.isRequired
 }
