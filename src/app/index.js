@@ -4,30 +4,31 @@ import { render } from "react-dom";
 
 import {Header} from "./components/Header";
 import {Home} from "./components/Home";
-import {Sidebar} from "./components/Sidebar";
 
 class App extends React.Component
 {
     render()
     {
+        var user = {
+            city: "Fatehabad",
+            states: ["Haryana" , "Punjab"]
+        };
         return(
             <div className = "container">
                 <h1>Hello Kapil</h1>
                 <div className="row">
                     <div className="col-xs-10">
                         <Header/>
+                        <Header/> 
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-xs-10">
-                        <Home/>
+                        <Home name={"Kaps"} age={23} data={user}>
+                            <p>This is a Children!</p>
+                        </Home>
                     </div>
-                </div>  
-                <div className="row">
-                    <div className="col-xs-10">
-                        <Sidebar/>
-                    </div>
-                </div>  
+                </div> 
             </div>
         );
     }
